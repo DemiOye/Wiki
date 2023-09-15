@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create New Page
+{% endblock %}
+
+{% block body %}
+<div class="create-page">
+    <h1>Create Page</h1><br>
+    {% if entry_exists %}
+        <span class="error">Error: The Following Entry "{{ existing_entry }}" Already Exists</span>
+    {% endif %}
+    <form action="{% url 'create page' %}" method="POST">
+        {% csrf_token %}
+        <label style="font-weight: lighter">Title</label>
+        <input name="title" type="text" required/>
+        <label style="font-weight: lighter">Content</label>
+        <textarea style="color: black" id="content" name="content" class="form-control" rows="10" required></textarea>
+        <input class="create-page-btn" type="submit" value="Create Entry"/>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+body { margin: 0; background-color: white; }
+code { white-space: pre; }
+h1 { margin-top: 0px; padding-top: 20px; }
+h2 { margin-bottom: 10px; }
+label { color: dimgrey; font-size: 18px; margin-bottom: 5px; }
+textarea { height: 90vh; width: 80%; }
+.main { padding: 10px; }
+.search { width: 100%; font-size: 15px; line-height: 15px; margin-bottom: 10px; }
+.sidebar { background-color: #f0f0f0; height: 100vh; padding: 20px; }
+.sidebar h2 { margin-top: 5px; }
+.create-page { position: relative; margin: 0% 5%; padding-bottom: 60px; }
+.create-page .error { color: red; }
+.create-page form { display: grid; }
+.create-page form input { padding: 5px 10px; margin-bottom: 20px; }
+.create-page form textarea { width: 100%; min-width: 100%; padding: 7px 12px; min-height: 300px; max-height: 300px; }
+.create-page-btn { position: absolute; right: 0; bottom: 0; padding: 3px 5px; width: 120px; }
+.entry-page { margin: 0% 5%; }
+.entry-page p { margin-bottom: 20px; }
+.entry-page .btn { color:#fff; margin: 0px 8px; font-weight: bold; padding: 5px; width: 120px; border-radius: 5px; text-align: center; opacity: 0.6; transition: 0.1s; }
+.entry-page .btn:hover { text-decoration: none; box-shadow: 0 2px 3px 0 rgba(0,0,0,0.4); opacity: 1.0;  }
+.edit-page { position: relative; margin: 0% 5%; padding-bottom: 60px; }
+.edit-page form { display: grid; }
+.edit-page form input { padding: 5px 10px; margin-bottom: 20px; }
+.edit-page form textarea { width: 100%; min-width: 100%; padding: 7px 12px; min-height: 350px; max-height: 350px; }
+.buttons { position: absolute; right: 0; bottom: 0; }
+.buttons a { color: red; margin-right: 15px; }

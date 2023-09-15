@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/toopay/bootstrap-markdown/master/css/bootstrap-markdown.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdn.rawgit.com/toopay/bootstrap-markdown/master/js/bootstrap-markdown.js"></script>
+        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="row">
+            <div style="padding: 25px 25px; line-height: 1.5;" class="sidebar col-lg-2 col-md-3">
+                <h2>Wiki</h2>
+                <form action="{% url 'search' %}" method="GET">
+                    <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
+                </form>
+                <div><a href="{% url 'index' %}">Home</a></div>
+                <div><a href="{% url 'create page' %}">Create New Page</a></div>
+                <div><a href="{% url 'random' %}">Random Page</a></div>
+                {% block nav %}{% endblock %}
+            </div>
+            <div class="main col-lg-10 col-md-9">{% block body %}{% endblock %}</div>
+        </div>
+        <script>
+            jQuery(document).ready(function($) {
+              $('#content').markdown({
+                onShow: function(e) {
+                  var $button = e.$textarea.closest('.md-editor').find('button[data-handler="bootstrap-markdown-cmdBeer"]');
+                  $button.attr('data-toggle', 'dropdown')
+                    .css({
+                      'float': 'none'
+                    })
+                    .wrap('<div class="dropdown"></div>')
+                    .after('<ul class="dropdown-menu"><li><a data-cmd="item1">Item 1</a></li><li><a data-cmd="item2">Item 2</a></li></ul>');
+                  $button.closest('.dropdown').find('.dropdown-menu').on('click', 'a[data-cmd]', function() {
+                    e.replaceSelection('CLICKED: ' + $(this).data('cmd') + '\n');
+                  });
+                  $button.dropdown();
+                },
+                additionalButtons: [
+                  [{
+                    data: [{
+                      name: 'cmdBeer',
+                      title: 'Beer',
+                      icon: {
+                        'glyph': 'glyphicon glyphicon-star',
+                        'fa': 'fa fa-star',
+                        'fa-3': 'icon-star',
+                        'octicons': 'octicon octicon-star'
+                      }
+                    }]
+                  }]
+                ]
+              });
+            });
+          </script>
+    </body>
+</html>

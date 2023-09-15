@@ -1,0 +1,15 @@
+{% extends "encyclopedia/layout.html" %}
+
+    {% block title %}
+        {{ title }}
+    {% endblock %}
+
+    {% block body %}
+    <div class="entry-page"><h1>JavaScript</h1>
+<p>JavaScript is one of the main programming languages used for web app development along side <a href="http://wiki/HTML">HTML</a> and <a href="http://wiki/CSS">CSS</a>.</p>
+<p>It functions mainly as a client-side scripting programming language but can also be used for logic programming and for server-side scripting with Node.js frameworks like Express Js.</p><div style="display: flex;">
+            <a style="background-color: #3170f7" class="btn" href="Edit {{ title }} Page">Edit Page</a>
+            <a style="background-color: red" class="btn" href="{{ title }} Page Deleted">Delete Page</a>
+        </div>
+    </div>
+    {% endblock %}
